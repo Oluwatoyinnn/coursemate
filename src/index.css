@@ -1,0 +1,553 @@
+@import "tailwindcss";
+
+/* Dark variant is driven by the app's own day/dark toggle (html.dark), never by the OS setting. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    overflow-x: clip; /* never let anything push the page sideways on phones */
+    -webkit-tap-highlight-color: transparent;
+    background-color: #fafaf9;
+    color: #0f172a;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+
+  /* Smooth scroll for weekly timeline */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  html.dark body {
+    background-color: #020617;
+    color: #f8fafc;
+  }
+
+  /* Default theme root canvas: soft daylight off-white (cards stay pure white and lift off it) in Day Mode, Deep Obsidian in Dark Mode */
+  html #screen-root {
+    background-color: #fafaf9;
+  }
+  html.dark #screen-root {
+    background-color: #020617;
+  }
+
+  /* ==============================================================
+     THEME 1: CAMPUS EMERALD & GOLDEN PALM (FUNAAB University Vibe)
+     Day Mode: Soft Tinted Daylight Canvas + Forest Green & Gold Accents
+     Dark Mode: Deep Velvet Forest Noir (#021a12) + Jade Surfaces
+     ============================================================== */
+  html.theme-emerald body,
+  html.theme-emerald #screen-root {
+    background-color: #f5fbf7 !important;
+    background-image: none !important;
+  }
+  html.theme-emerald.dark body,
+  html.theme-emerald.dark #screen-root {
+    background-color: #021a12 !important;
+    background-image: none !important;
+  }
+
+  /* Emerald Card Surfaces & Borders */
+  html.theme-emerald.dark .dark\:bg-slate-900,
+  html.theme-emerald.dark .dark\:bg-slate-900\/95,
+  html.theme-emerald.dark .dark\:bg-slate-900\/80 {
+    background-color: #04261b !important;
+  }
+  html.theme-emerald.dark .dark\:border-slate-800 {
+    border-color: rgba(16, 185, 129, 0.22) !important;
+  }
+  html.theme-emerald header,
+  html.theme-emerald .sticky.top-0 {
+    border-color: rgba(16, 185, 129, 0.15) !important;
+  }
+
+  /* Emerald Buttons & Backgrounds */
+  html.theme-emerald .bg-indigo-50 { background-color: #ecfdf5 !important; }
+  html.theme-emerald .bg-indigo-100 { background-color: #d1fae5 !important; }
+  html.theme-emerald .bg-indigo-200 { background-color: #a7f3d0 !important; }
+  html.theme-emerald .bg-indigo-600 { background-color: #059669 !important; }
+  html.theme-emerald .bg-indigo-700 { background-color: #047857 !important; }
+  html.theme-emerald .hover\:bg-indigo-50:hover { background-color: #ecfdf5 !important; }
+  html.theme-emerald .hover\:bg-indigo-100:hover { background-color: #d1fae5 !important; }
+  html.theme-emerald .hover\:bg-indigo-600:hover { background-color: #059669 !important; }
+  html.theme-emerald .hover\:bg-indigo-700:hover { background-color: #047857 !important; }
+  html.theme-emerald.dark .dark\:bg-indigo-950,
+  html.theme-emerald.dark .dark\:bg-indigo-950\/40,
+  html.theme-emerald.dark .dark\:bg-indigo-950\/50,
+  html.theme-emerald.dark .dark\:bg-indigo-950\/60 {
+    background-color: rgba(6, 78, 59, 0.5) !important;
+  }
+  html.theme-emerald.dark .dark\:hover\:bg-indigo-900\/60:hover {
+    background-color: rgba(6, 78, 59, 0.7) !important;
+  }
+
+  /* Emerald Gradients */
+  html.theme-emerald .from-indigo-50\/70,
+  html.theme-emerald .from-indigo-50\/80,
+  html.theme-emerald .from-indigo-50\/90,
+  html.theme-emerald .from-indigo-50 {
+    --tw-gradient-from: #ecfdf5 var(--tw-gradient-from-position) !important;
+    --tw-gradient-to: rgba(236, 253, 245, 0) var(--tw-gradient-to-position) !important;
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+  }
+  html.theme-emerald .to-purple-50\/50,
+  html.theme-emerald .to-purple-50\/60,
+  html.theme-emerald .to-purple-50 {
+    --tw-gradient-to: #d1fae5 var(--tw-gradient-to-position) !important;
+  }
+  html.theme-emerald.dark .from-indigo-950\/40,
+  html.theme-emerald.dark .from-indigo-950 {
+    --tw-gradient-from: rgba(6, 78, 59, 0.5) var(--tw-gradient-from-position) !important;
+  }
+  html.theme-emerald.dark .to-indigo-950\/40,
+  html.theme-emerald.dark .to-indigo-950 {
+    --tw-gradient-to: rgba(6, 78, 59, 0.3) var(--tw-gradient-to-position) !important;
+  }
+
+  /* Emerald Text & Accent Colors */
+  html.theme-emerald .text-indigo-400 { color: #34d399 !important; }
+  html.theme-emerald .text-indigo-600 { color: #059669 !important; }
+  html.theme-emerald .text-indigo-700 { color: #047857 !important; }
+  html.theme-emerald .text-indigo-800 { color: #065f46 !important; }
+  html.theme-emerald .text-indigo-900,
+  html.theme-emerald .text-indigo-900\/90 { color: #064e3b !important; }
+  html.theme-emerald .text-indigo-950 { color: #022c22 !important; }
+  html.theme-emerald.dark .dark\:text-indigo-200 { color: #a7f3d0 !important; }
+  html.theme-emerald.dark .dark\:text-indigo-300,
+  html.theme-emerald.dark .dark\:text-indigo-300\/80 { color: #6ee7b7 !important; }
+  html.theme-emerald.dark .dark\:text-indigo-400 { color: #34d399 !important; }
+
+  /* Emerald Borders & Rings */
+  html.theme-emerald .border-indigo-100 { border-color: #d1fae5 !important; }
+  html.theme-emerald .border-indigo-200,
+  html.theme-emerald .border-indigo-200\/80,
+  html.theme-emerald .border-indigo-200\/90 { border-color: #a7f3d0 !important; }
+  html.theme-emerald .border-indigo-300 { border-color: #6ee7b7 !important; }
+  html.theme-emerald .border-indigo-500,
+  html.theme-emerald .border-indigo-500\/30 { border-color: #10b981 !important; }
+  html.theme-emerald .border-indigo-600 { border-color: #059669 !important; }
+  html.theme-emerald.dark .dark\:border-indigo-800,
+  html.theme-emerald.dark .dark\:border-indigo-800\/80,
+  html.theme-emerald.dark .dark\:border-indigo-900\/50,
+  html.theme-emerald.dark .dark\:border-indigo-900\/60,
+  html.theme-emerald.dark .dark\:border-indigo-900\/70 {
+    border-color: rgba(6, 78, 59, 0.7) !important;
+  }
+  html.theme-emerald .ring-indigo-500,
+  html.theme-emerald .ring-indigo-600,
+  html.theme-emerald .focus\:ring-indigo-500:focus {
+    --tw-ring-color: #10b981 !important;
+  }
+
+  /* Emerald Logo & Brand Wordmark */
+  html.theme-emerald svg[aria-label="Course Mate official brand logo"],
+  html.theme-emerald svg[aria-label="Course Mate brand mark"] {
+    color: #059669 !important;
+  }
+  html.theme-emerald.dark svg[aria-label="Course Mate official brand logo"],
+  html.theme-emerald.dark svg[aria-label="Course Mate brand mark"] {
+    color: #34d399 !important;
+  }
+  html.theme-emerald .text-\[\#3b188c\] {
+    color: #065f46 !important;
+  }
+
+  /* ==============================================================
+     THEME 2: CYBER TEAL & NEON SILICON (Tech & Computing Aesthetic)
+     Day Mode: Soft Tinted Daylight Canvas + Electric Cyan & Teal Accents
+     Dark Mode: Deep Cyber-Obsidian (#02141a) + Cyan Glow Surfaces
+     ============================================================== */
+  html.theme-cyber body,
+  html.theme-cyber #screen-root {
+    background-color: #f4fbfc !important;
+    background-image: none !important;
+  }
+  html.theme-cyber.dark body,
+  html.theme-cyber.dark #screen-root {
+    background-color: #02141a !important;
+    background-image: none !important;
+  }
+
+  /* Cyber Card Surfaces & Borders */
+  html.theme-cyber.dark .dark\:bg-slate-900,
+  html.theme-cyber.dark .dark\:bg-slate-900\/95,
+  html.theme-cyber.dark .dark\:bg-slate-900\/80 {
+    background-color: #041f27 !important;
+  }
+  html.theme-cyber.dark .dark\:border-slate-800 {
+    border-color: rgba(6, 182, 212, 0.22) !important;
+  }
+  html.theme-cyber header,
+  html.theme-cyber .sticky.top-0 {
+    border-color: rgba(6, 182, 212, 0.18) !important;
+  }
+
+  /* Cyber Buttons & Backgrounds */
+  html.theme-cyber .bg-indigo-50 { background-color: #ecfeff !important; }
+  html.theme-cyber .bg-indigo-100 { background-color: #cffafe !important; }
+  html.theme-cyber .bg-indigo-200 { background-color: #a5f3fc !important; }
+  html.theme-cyber .bg-indigo-600 { background-color: #0891b2 !important; }
+  html.theme-cyber .bg-indigo-700 { background-color: #0e7490 !important; }
+  html.theme-cyber .hover\:bg-indigo-50:hover { background-color: #ecfeff !important; }
+  html.theme-cyber .hover\:bg-indigo-100:hover { background-color: #cffafe !important; }
+  html.theme-cyber .hover\:bg-indigo-600:hover { background-color: #0891b2 !important; }
+  html.theme-cyber .hover\:bg-indigo-700:hover { background-color: #0e7490 !important; }
+  html.theme-cyber.dark .dark\:bg-indigo-950,
+  html.theme-cyber.dark .dark\:bg-indigo-950\/40,
+  html.theme-cyber.dark .dark\:bg-indigo-950\/50,
+  html.theme-cyber.dark .dark\:bg-indigo-950\/60 {
+    background-color: rgba(22, 78, 99, 0.5) !important;
+  }
+  html.theme-cyber.dark .dark\:hover\:bg-indigo-900\/60:hover {
+    background-color: rgba(22, 78, 99, 0.7) !important;
+  }
+
+  /* Cyber Gradients */
+  html.theme-cyber .from-indigo-50\/70,
+  html.theme-cyber .from-indigo-50\/80,
+  html.theme-cyber .from-indigo-50\/90,
+  html.theme-cyber .from-indigo-50 {
+    --tw-gradient-from: #ecfeff var(--tw-gradient-from-position) !important;
+    --tw-gradient-to: rgba(236, 254, 255, 0) var(--tw-gradient-to-position) !important;
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+  }
+  html.theme-cyber .to-purple-50\/50,
+  html.theme-cyber .to-purple-50\/60,
+  html.theme-cyber .to-purple-50 {
+    --tw-gradient-to: #cffafe var(--tw-gradient-to-position) !important;
+  }
+  html.theme-cyber.dark .from-indigo-950\/40,
+  html.theme-cyber.dark .from-indigo-950 {
+    --tw-gradient-from: rgba(22, 78, 99, 0.5) var(--tw-gradient-from-position) !important;
+  }
+  html.theme-cyber.dark .to-indigo-950\/40,
+  html.theme-cyber.dark .to-indigo-950 {
+    --tw-gradient-to: rgba(22, 78, 99, 0.3) var(--tw-gradient-to-position) !important;
+  }
+
+  /* Cyber Text & Accent Colors */
+  html.theme-cyber .text-indigo-400 { color: #22d3ee !important; }
+  html.theme-cyber .text-indigo-600 { color: #0891b2 !important; }
+  html.theme-cyber .text-indigo-700 { color: #0e7490 !important; }
+  html.theme-cyber .text-indigo-800 { color: #155e75 !important; }
+  html.theme-cyber .text-indigo-900,
+  html.theme-cyber .text-indigo-900\/90 { color: #164e63 !important; }
+  html.theme-cyber .text-indigo-950 { color: #083344 !important; }
+  html.theme-cyber.dark .dark\:text-indigo-200 { color: #a5f3fc !important; }
+  html.theme-cyber.dark .dark\:text-indigo-300,
+  html.theme-cyber.dark .dark\:text-indigo-300\/80 { color: #67e8f9 !important; }
+  html.theme-cyber.dark .dark\:text-indigo-400 { color: #22d3ee !important; }
+
+  /* Cyber Borders & Rings */
+  html.theme-cyber .border-indigo-100 { border-color: #cffafe !important; }
+  html.theme-cyber .border-indigo-200,
+  html.theme-cyber .border-indigo-200\/80,
+  html.theme-cyber .border-indigo-200\/90 { border-color: #a5f3fc !important; }
+  html.theme-cyber .border-indigo-300 { border-color: #67e8f9 !important; }
+  html.theme-cyber .border-indigo-500,
+  html.theme-cyber .border-indigo-500\/30 { border-color: #06b6d4 !important; }
+  html.theme-cyber .border-indigo-600 { border-color: #0891b2 !important; }
+  html.theme-cyber.dark .dark\:border-indigo-800,
+  html.theme-cyber.dark .dark\:border-indigo-800\/80,
+  html.theme-cyber.dark .dark\:border-indigo-900\/50,
+  html.theme-cyber.dark .dark\:border-indigo-900\/60,
+  html.theme-cyber.dark .dark\:border-indigo-900\/70 {
+    border-color: rgba(22, 78, 99, 0.7) !important;
+  }
+  html.theme-cyber .ring-indigo-500,
+  html.theme-cyber .ring-indigo-600,
+  html.theme-cyber .focus\:ring-indigo-500:focus {
+    --tw-ring-color: #06b6d4 !important;
+  }
+
+  /* Cyber Logo & Brand Wordmark */
+  html.theme-cyber svg[aria-label="Course Mate official brand logo"],
+  html.theme-cyber svg[aria-label="Course Mate brand mark"] {
+    color: #0891b2 !important;
+  }
+  html.theme-cyber.dark svg[aria-label="Course Mate official brand logo"],
+  html.theme-cyber.dark svg[aria-label="Course Mate brand mark"] {
+    color: #22d3ee !important;
+  }
+  html.theme-cyber .text-\[\#3b188c\] {
+    color: #0e7490 !important;
+  }
+
+  /* ==============================================================
+     THEME 3: ROYAL PURPLE & IMPERIAL AMETHYST (Laureate Scholar)
+     Day Mode: Soft Tinted Daylight Canvas + Imperial Violet Accents
+     Dark Mode: Deep Imperial Twilight (#0e061c) + Amethyst Surfaces
+     ============================================================== */
+  html.theme-royal body,
+  html.theme-royal #screen-root {
+    background-color: #f9f7fe !important;
+    background-image: none !important;
+  }
+  html.theme-royal.dark body,
+  html.theme-royal.dark #screen-root {
+    background-color: #0e061c !important;
+    background-image: none !important;
+  }
+
+  /* Royal Card Surfaces & Borders */
+  html.theme-royal.dark .dark\:bg-slate-900,
+  html.theme-royal.dark .dark\:bg-slate-900\/95,
+  html.theme-royal.dark .dark\:bg-slate-900\/80 {
+    background-color: #150a2b !important;
+  }
+  html.theme-royal.dark .dark\:border-slate-800 {
+    border-color: rgba(168, 85, 247, 0.24) !important;
+  }
+  html.theme-royal header,
+  html.theme-royal .sticky.top-0 {
+    border-color: rgba(168, 85, 247, 0.18) !important;
+  }
+
+  /* Royal Buttons & Backgrounds */
+  html.theme-royal .bg-indigo-50 { background-color: #f5f3ff !important; }
+  html.theme-royal .bg-indigo-100 { background-color: #f3e8ff !important; }
+  html.theme-royal .bg-indigo-200 { background-color: #e9d5ff !important; }
+  html.theme-royal .bg-indigo-600 { background-color: #7c3aed !important; }
+  html.theme-royal .bg-indigo-700 { background-color: #6d28d9 !important; }
+  html.theme-royal .hover\:bg-indigo-50:hover { background-color: #f5f3ff !important; }
+  html.theme-royal .hover\:bg-indigo-100:hover { background-color: #f3e8ff !important; }
+  html.theme-royal .hover\:bg-indigo-600:hover { background-color: #7c3aed !important; }
+  html.theme-royal .hover\:bg-indigo-700:hover { background-color: #6d28d9 !important; }
+  html.theme-royal.dark .dark\:bg-indigo-950,
+  html.theme-royal.dark .dark\:bg-indigo-950\/40,
+  html.theme-royal.dark .dark\:bg-indigo-950\/50,
+  html.theme-royal.dark .dark\:bg-indigo-950\/60 {
+    background-color: rgba(88, 28, 135, 0.5) !important;
+  }
+  html.theme-royal.dark .dark\:hover\:bg-indigo-900\/60:hover {
+    background-color: rgba(88, 28, 135, 0.7) !important;
+  }
+
+  /* Royal Gradients */
+  html.theme-royal .from-indigo-50\/70,
+  html.theme-royal .from-indigo-50\/80,
+  html.theme-royal .from-indigo-50\/90,
+  html.theme-royal .from-indigo-50 {
+    --tw-gradient-from: #f5f3ff var(--tw-gradient-from-position) !important;
+    --tw-gradient-to: rgba(245, 243, 255, 0) var(--tw-gradient-to-position) !important;
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+  }
+  html.theme-royal .to-purple-50\/50,
+  html.theme-royal .to-purple-50\/60,
+  html.theme-royal .to-purple-50 {
+    --tw-gradient-to: #f3e8ff var(--tw-gradient-to-position) !important;
+  }
+  html.theme-royal.dark .from-indigo-950\/40,
+  html.theme-royal.dark .from-indigo-950 {
+    --tw-gradient-from: rgba(88, 28, 135, 0.5) var(--tw-gradient-from-position) !important;
+  }
+  html.theme-royal.dark .to-indigo-950\/40,
+  html.theme-royal.dark .to-indigo-950 {
+    --tw-gradient-to: rgba(88, 28, 135, 0.3) var(--tw-gradient-to-position) !important;
+  }
+
+  /* Royal Text & Accent Colors */
+  html.theme-royal .text-indigo-400 { color: #c084fc !important; }
+  html.theme-royal .text-indigo-600 { color: #7c3aed !important; }
+  html.theme-royal .text-indigo-700 { color: #6d28d9 !important; }
+  html.theme-royal .text-indigo-800 { color: #5b21b6 !important; }
+  html.theme-royal .text-indigo-900,
+  html.theme-royal .text-indigo-900\/90 { color: #4c1d95 !important; }
+  html.theme-royal .text-indigo-950 { color: #2e1065 !important; }
+  html.theme-royal.dark .dark\:text-indigo-200 { color: #e9d5ff !important; }
+  html.theme-royal.dark .dark\:text-indigo-300,
+  html.theme-royal.dark .dark\:text-indigo-300\/80 { color: #d8b4fe !important; }
+  html.theme-royal.dark .dark\:text-indigo-400 { color: #c084fc !important; }
+
+  /* Royal Borders & Rings */
+  html.theme-royal .border-indigo-100 { border-color: #f3e8ff !important; }
+  html.theme-royal .border-indigo-200,
+  html.theme-royal .border-indigo-200\/80,
+  html.theme-royal .border-indigo-200\/90 { border-color: #e9d5ff !important; }
+  html.theme-royal .border-indigo-300 { border-color: #d8b4fe !important; }
+  html.theme-royal .border-indigo-500,
+  html.theme-royal .border-indigo-500\/30 { border-color: #8b5cf6 !important; }
+  html.theme-royal .border-indigo-600 { border-color: #7c3aed !important; }
+  html.theme-royal.dark .dark\:border-indigo-800,
+  html.theme-royal.dark .dark\:border-indigo-800\/80,
+  html.theme-royal.dark .dark\:border-indigo-900\/50,
+  html.theme-royal.dark .dark\:border-indigo-900\/60,
+  html.theme-royal.dark .dark\:border-indigo-900\/70 {
+    border-color: rgba(88, 28, 135, 0.7) !important;
+  }
+  html.theme-royal .ring-indigo-500,
+  html.theme-royal .ring-indigo-600,
+  html.theme-royal .focus\:ring-indigo-500:focus {
+    --tw-ring-color: #8b5cf6 !important;
+  }
+
+  /* Royal Logo & Brand Wordmark */
+  html.theme-royal svg[aria-label="Course Mate official brand logo"],
+  html.theme-royal svg[aria-label="Course Mate brand mark"] {
+    color: #7c3aed !important;
+  }
+  html.theme-royal.dark svg[aria-label="Course Mate official brand logo"],
+  html.theme-royal.dark svg[aria-label="Course Mate brand mark"] {
+    color: #c084fc !important;
+  }
+  html.theme-royal .text-\[\#3b188c\] {
+    color: #5b21b6 !important;
+  }
+
+  /* ==============================================================
+     THEME 4: GOLDEN AMBER & SUNSET HARVEST (Warm Solar Glow)
+     Day Mode: Soft Tinted Daylight Canvas + Warm Amber & Gold Accents
+     Dark Mode: Roasted Espresso Amber (#170d02) + Candlelit Surfaces
+     ============================================================== */
+  html.theme-amber body,
+  html.theme-amber #screen-root {
+    background-color: #fdfaf3 !important;
+    background-image: none !important;
+  }
+  html.theme-amber.dark body,
+  html.theme-amber.dark #screen-root {
+    background-color: #170d02 !important;
+    background-image: none !important;
+  }
+
+  /* Amber Card Surfaces & Borders */
+  html.theme-amber.dark .dark\:bg-slate-900,
+  html.theme-amber.dark .dark\:bg-slate-900\/95,
+  html.theme-amber.dark .dark\:bg-slate-900\/80 {
+    background-color: #201304 !important;
+  }
+  html.theme-amber.dark .dark\:border-slate-800 {
+    border-color: rgba(245, 158, 11, 0.24) !important;
+  }
+  html.theme-amber header,
+  html.theme-amber .sticky.top-0 {
+    border-color: rgba(245, 158, 11, 0.2) !important;
+  }
+
+  /* Amber Buttons & Backgrounds */
+  html.theme-amber .bg-indigo-50 { background-color: #fffbeb !important; }
+  html.theme-amber .bg-indigo-100 { background-color: #fef3c7 !important; }
+  html.theme-amber .bg-indigo-200 { background-color: #fde68a !important; }
+  html.theme-amber .bg-indigo-600 { background-color: #d97706 !important; }
+  html.theme-amber .bg-indigo-700 { background-color: #b45309 !important; }
+  html.theme-amber .hover\:bg-indigo-50:hover { background-color: #fffbeb !important; }
+  html.theme-amber .hover\:bg-indigo-100:hover { background-color: #fef3c7 !important; }
+  html.theme-amber .hover\:bg-indigo-600:hover { background-color: #d97706 !important; }
+  html.theme-amber .hover\:bg-indigo-700:hover { background-color: #b45309 !important; }
+  html.theme-amber.dark .dark\:bg-indigo-950,
+  html.theme-amber.dark .dark\:bg-indigo-950\/40,
+  html.theme-amber.dark .dark\:bg-indigo-950\/50,
+  html.theme-amber.dark .dark\:bg-indigo-950\/60 {
+    background-color: rgba(120, 53, 15, 0.5) !important;
+  }
+  html.theme-amber.dark .dark\:hover\:bg-indigo-900\/60:hover {
+    background-color: rgba(120, 53, 15, 0.7) !important;
+  }
+
+  /* Amber Gradients */
+  html.theme-amber .from-indigo-50\/70,
+  html.theme-amber .from-indigo-50\/80,
+  html.theme-amber .from-indigo-50\/90,
+  html.theme-amber .from-indigo-50 {
+    --tw-gradient-from: #fffbeb var(--tw-gradient-from-position) !important;
+    --tw-gradient-to: rgba(255, 251, 235, 0) var(--tw-gradient-to-position) !important;
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+  }
+  html.theme-amber .to-purple-50\/50,
+  html.theme-amber .to-purple-50\/60,
+  html.theme-amber .to-purple-50 {
+    --tw-gradient-to: #fef3c7 var(--tw-gradient-to-position) !important;
+  }
+  html.theme-amber.dark .from-indigo-950\/40,
+  html.theme-amber.dark .from-indigo-950 {
+    --tw-gradient-from: rgba(120, 53, 15, 0.5) var(--tw-gradient-from-position) !important;
+  }
+  html.theme-amber.dark .to-indigo-950\/40,
+  html.theme-amber.dark .to-indigo-950 {
+    --tw-gradient-to: rgba(120, 53, 15, 0.3) var(--tw-gradient-to-position) !important;
+  }
+
+  /* Amber Text & Accent Colors */
+  html.theme-amber .text-indigo-400 { color: #fbbf24 !important; }
+  html.theme-amber .text-indigo-600 { color: #d97706 !important; }
+  html.theme-amber .text-indigo-700 { color: #b45309 !important; }
+  html.theme-amber .text-indigo-800 { color: #92400e !important; }
+  html.theme-amber .text-indigo-900,
+  html.theme-amber .text-indigo-900\/90 { color: #78350f !important; }
+  html.theme-amber .text-indigo-950 { color: #451a03 !important; }
+  html.theme-amber.dark .dark\:text-indigo-200 { color: #fde68a !important; }
+  html.theme-amber.dark .dark\:text-indigo-300,
+  html.theme-amber.dark .dark\:text-indigo-300\/80 { color: #fcd34d !important; }
+  html.theme-amber.dark .dark\:text-indigo-400 { color: #fbbf24 !important; }
+
+  /* Amber Borders & Rings */
+  html.theme-amber .border-indigo-100 { border-color: #fef3c7 !important; }
+  html.theme-amber .border-indigo-200,
+  html.theme-amber .border-indigo-200\/80,
+  html.theme-amber .border-indigo-200\/90 { border-color: #fde68a !important; }
+  html.theme-amber .border-indigo-300 { border-color: #fcd34d !important; }
+  html.theme-amber .border-indigo-500,
+  html.theme-amber .border-indigo-500\/30 { border-color: #f59e0b !important; }
+  html.theme-amber .border-indigo-600 { border-color: #d97706 !important; }
+  html.theme-amber.dark .dark\:border-indigo-800,
+  html.theme-amber.dark .dark\:border-indigo-800\/80,
+  html.theme-amber.dark .dark\:border-indigo-900\/50,
+  html.theme-amber.dark .dark\:border-indigo-900\/60,
+  html.theme-amber.dark .dark\:border-indigo-900\/70 {
+    border-color: rgba(120, 53, 15, 0.7) !important;
+  }
+  html.theme-amber .ring-indigo-500,
+  html.theme-amber .ring-indigo-600,
+  html.theme-amber .focus\:ring-indigo-500:focus {
+    --tw-ring-color: #f59e0b !important;
+  }
+
+  /* Amber Logo & Brand Wordmark */
+  html.theme-amber svg[aria-label="Course Mate official brand logo"],
+  html.theme-amber svg[aria-label="Course Mate brand mark"] {
+    color: #d97706 !important;
+  }
+  html.theme-amber.dark svg[aria-label="Course Mate official brand logo"],
+  html.theme-amber.dark svg[aria-label="Course Mate brand mark"] {
+    color: #fbbf24 !important;
+  }
+  html.theme-amber .text-\[\#3b188c\] {
+    color: #92400e !important;
+  }
+}
+
+/* Print Styles for Certified A4 Timetable */
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 8mm;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 10pt;
+  }
+
+  #screen-root {
+    display: none !important;
+  }
+
+  .print-only-timetable {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}

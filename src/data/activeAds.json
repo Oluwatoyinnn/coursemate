@@ -1,0 +1,35 @@
+[
+  {
+    "id": "sisco-initiative-cohort-1",
+    "brandName": "The Sisco Initiative",
+    "tagline": "AI ISN'T THE SKILL. WHAT YOU CAN DO WITH IT IS.",
+    "description": "Learn to BUILD, DESIGN, and CREATE in 4 Weeks. 3 Practical AI programs: AI Software Development, Graphics Design, and Video Creation. First Cohort ₦10,000 subsidy now active.",
+    "actionUrl": "sisco-showcase",
+    "actionLabel": "Explore Programs (₦10,000 OFF)",
+    "badge": "VIP 30-Day Campus Partner",
+    "startDate": "2026-10-01T00:00:00Z",
+    "endDate": "2026-11-20T23:59:59Z",
+    "active": true,
+    "category": "Tech & Digital Skills",
+    "is30DayPartner": true,
+    "whatsappNumber": "2348128197651",
+    "whatsappMessage": "Hello The Sisco Initiative! I saw your program on Course Mate. I want to secure my First Cohort spot with the ₦10,000 student discount.",
+    "modalType": "sisco-showcase"
+  },
+  {
+    "id": "davinci-live-statistically-speaking",
+    "brandName": "DaVinci Live: Statistically Speaking",
+    "tagline": "THE BIGGEST COMEDY CONCERT OF THE YEAR IN FUNAAB",
+    "description": "A one-night comedy special live at CENTS Auditorium, FUNAAB. Wed, 11th Nov 2026 (12:00 PM). Featuring DaVinci's signature storytelling, guest comedians, and surprises. Early Bird from ₦3,000.",
+    "actionUrl": "davinci-showcase",
+    "actionLabel": "Get Tickets (from ₦3,000)",
+    "badge": "VIP 30-Day Campus Partner",
+    "startDate": "2026-10-01T00:00:00Z",
+    "endDate": "2026-11-15T23:59:59Z",
+    "active": true,
+    "category": "Campus Event & Entertainment",
+    "is30DayPartner": true,
+    "externalTicketUrl": "https://tickethub.ng/davinci-live-statistically-speaking-Ti4rsN/siscoask",
+    "modalType": "davinci-showcase"
+  }
+]

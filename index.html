@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Course Mate</title>
+    <meta name="description" content="Your academic day, simplified. Official FUNAAB 2026/2027 lecture timetable utility, next class alerts, venue directory, and personal schedule planner." />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Course Mate" />
+    <meta property="og:description" content="Your academic day, simplified. Official FUNAAB 2026/2027 lecture timetable utility, next class alerts, venue directory, and personal schedule planner." />
+    <meta property="og:image" content="/pwa-512x512.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Course Mate" />
+    <meta name="twitter:description" content="Your academic day, simplified. Official FUNAAB 2026/2027 lecture timetable utility." />
+    <meta name="twitter:image" content="/pwa-192x192.png" />
+
+    <!-- PWA / Mobile Theme -->
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Course Mate" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="shortcut icon" href="./favicon.svg" />
+
+    <!-- Google Fonts: Plus Jakarta Sans for refined legibility and JetBrains Mono for tabular metrics -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <script>
+      try {
+        var saved = localStorage.getItem('course_mate_profile');
+        if (saved) {
+          var p = JSON.parse(saved);
+          if (p.darkMode) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      } catch (e) {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
+  </head>
+  <body class="bg-stone-50 text-slate-900 antialiased selection:bg-indigo-100 selection:text-indigo-900 min-h-screen">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
