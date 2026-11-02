@@ -1,0 +1,6 @@
+{
+  "name": "Course Mate",
+  "description": "Your academic day, simplified. Official FUNAAB 2026/2027 lecture timetable utility, next class alerts, venue directory, and personal schedule planner.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
