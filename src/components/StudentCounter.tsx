@@ -8,14 +8,25 @@ export const StudentCounter: React.FC<{ className?: string; variant?: 'pill' | '
   const [shown, setShown] = useState<number | null>(value);
   const frame = useRef<number | null>(null);
 
-  useEffect(() => {
+    useEffect(() => {
     if (!isCounterConfigured()) return;
     let cancelled = false;
-    registerAndGetCount().then((n) => {
-      if (!cancelled && n !== null) setValue(n);
-    });
+
+    const fetchCount = () => {
+      registerAndGetCount().then((n) => {
+        if (!cancelled && n !== null) setValue(n);
+      });
+    };
+
+    // Fetch immediately on load
+    fetchCount();
+
+    // Then check for new students every 15 seconds
+    const interval = setInterval(fetchCount, 15000);
+
     return () => {
       cancelled = true;
+      clearInterval(interval);
     };
   }, []);
 

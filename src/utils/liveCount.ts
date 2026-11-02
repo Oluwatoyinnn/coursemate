@@ -95,6 +95,9 @@ export async function registerAndGetCount(): Promise<number | null> {
       if (res.ok) localStorage.setItem(COUNTED_KEY, '1');
     }
 
+        // Wait 1 second to ensure the database has saved the new row
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
     const t2 = withTimeout(8000);
     const res = await fetch(`${SUPABASE_URL}/rest/v1/rpc/student_count`, {
       method: 'POST',
